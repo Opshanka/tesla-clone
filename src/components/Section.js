@@ -1,18 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
 function Section({title,description,backgoundImage,leftBtnText,rightBtnText}) {
  
   return (
     <Wrap bgImage={backgoundImage}>
-      <ItemText>
+           <Fade bottom>
+           <ItemText>
           <h1>{title}</h1>
           <p>{description}</p>
       </ItemText>
+           </Fade>
+
       <Buttons>
-      <ButtonGroup>
-          {leftBtnText && <LeftButton>{leftBtnText}</LeftButton>}
-          {rightBtnText &&  <RightButton>{rightBtnText}</RightButton>}
-      </ButtonGroup>
+      <Fade bottom>
+        <ButtonGroup>
+            {leftBtnText && <LeftButton>{leftBtnText}</LeftButton>}
+            {rightBtnText &&  <RightButton>{rightBtnText}</RightButton>}
+        </ButtonGroup>
+      </Fade>
+  
       <DownArrow src="/images/down-arrow.svg"/>
       </Buttons>
   
@@ -34,6 +41,7 @@ const Wrap = styled.div`
     flex-direction:column;
     justify-content:space-between;
     align-items:center;
+    z-index:10;
 `
 
 const ItemText = styled.div`
